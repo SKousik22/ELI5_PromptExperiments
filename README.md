@@ -27,7 +27,9 @@ The following baseline metrics are used to assess generation quality across all 
 - **BERTScore (Primary):** Measures semantic similarity between the generated ELI5 explanation and the reference answer $A$. Captures meaning preservation better than surface-level overlap.
 - **ROUGE-L (Secondary):** Measures longest common subsequence overlap. Used as a fast sanity-check for gross failures rather than a primary signal.
 - **Faithfulness Score (Category A only):** An LLM-as-judge prompt assesses whether the generated explanation contains claims unsupported by the Gold document $G$. Particularly important in experiments where the model must synthesize rather than extract.
-- **Simplicity Score:** Flesch-Kincaid readability grade is used as a lightweight proxy to verify that the model maintains ELI5 register under increasing context pressure.
+- **PropRecall (Custom-made for these experiments):** It is a Recall version of FActScore, where the facts to be recalled are obtained from the reference answer (the ground truth in this case).
+- ** Average Contextual Similarity (Custom-made for these experiments):** It's a custom-made metric that gives a measure of contextual similarity between reference answers and LLM-generated answers.
+- ** Weighted PropRecall (Custom-made):** It's just weighting the proportional recall of each proportion, and then computing the average.
 
 ---
 
